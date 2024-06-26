@@ -6,3 +6,5 @@
 # git config --global user.name "06171002"
 추가추가
 
+가나다라마바사
+
