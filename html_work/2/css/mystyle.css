@@ -1,0 +1,50 @@
+header {
+    width: 100%;
+    height: 150px;
+    background-color: rgb(4, 195, 243);
+}
+
+#container {
+    width: 1000px;
+    /* height: 100px; */
+    /* background-color: brown; */
+    /*북 동 남 서*/
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+div {
+    font-size: 20px;
+}
+
+#logo {
+
+    padding-left: 30px;
+}
+
+nav {
+    float: right;
+    /*오른쪽으로 붙이기*/
+}
+
+li {
+    float: left;
+    list-style-type: none;
+}
+
+li a {
+    display: block;
+    padding: 20px 50px;
+}
+
+section {
+    padding: 20px 60px;
+}
+
+footer {
+    height: 100px;
+    background-color: cadetblue;
+}
