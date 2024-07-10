@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+    
+    * {
+      font-family: "NotoSans";
+      font-weight: 400;
+      font-style: normal;
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    .out {
+      overflow: hidden;
+      /* position: relative;        */
+      /* width: 960px;
+      height: 200px;
+      margin: 0 auto; */
+    }
+    .in {
+      /* position: absolute; */
+      width: 100px;
+      height: 100px;
+    }
+    .blue {
+      background-color: blue;
+    }
+    .yellow {
+      background-color: yellow;
+      float: right;
+      /* right: 0; */
+    }
+    .green {
+      background-color: green;
+    }
+    .red {
+      background-color: red;
+      float: left;
+      /* left: 430px; */
+      
+    }
+  </style>
+  <!-- 자식태그에 플롯 부모태그 오버플로우 히든 -->
+</head>
+<body>
+  <div class="out green">
+    <div class="in blue">
+      <h1>AA</h1>
+    </div>
+    <div class="in yellow">
+      <h1>BB</h1>
+    </div>
+    <div class="in red">
+      <h1>CC</h1>
+    </div>
+  </div>
+</body>
+</html>

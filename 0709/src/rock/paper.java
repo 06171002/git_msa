@@ -14,7 +14,7 @@ public class paper {
 
         while (true){
             str = sc.next();
-            computer = (int)(Math.random()*2);
+            computer = (int)(Math.random()*3);
             if (str.equals("가위")){
                 user = 0;
             } else if (str.equals("바위")) {
@@ -33,6 +33,7 @@ public class paper {
             }
 
         }
-        System.out.println(result[0] + " " + result[1]);
+        System.out.println(computer);
+        System.out.println("승: " +result[0] + "무: " + result[1]);
     }
 }
