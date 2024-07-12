@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    div{
+      box-sizing: border-box;
+      padding: 20px;
+      width: 200px;
+      height: 200px;
+      background-color: #ccc;
+      box-shadow: 20px 20px 3px 3px hsl(0, 13%, 57%);
+      animation: aa 2s infinite;
+      border-radius: 20px;
+      
+    }
+    
+    @keyframes aa {
+      0%{
+        box-shadow: 10px 10px 5px 5px hsl(0, 19%, 27%);
+        transform: translateX();
+      }
+      100%{
+        box-shadow: 10px 10px 5px 5px hsl(0, 19%, 27%);
+      }
+    }
+  </style>
+  
+</head>
+<body>
+  <div></div>
+</body>
+</html>

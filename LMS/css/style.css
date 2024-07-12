@@ -5,7 +5,8 @@ a {
     color: #000;
     
 }
-body { font-size:14px; }
+body { 
+    font-size:14px; }
 ul {
     padding:0;
     margin:0;
@@ -26,14 +27,17 @@ address {
 }
 
 .left {
+    
     float: left;
     width:50%;
 }
 .right {
+    
     float: right;
     width:50%;
 }
-.logo { margin-bottom:50px; }
+.logo { margin-bottom: 0; }
+.logo > span {color: hsl(49, 100%, 50%); background-color: #c0bcbc;}
 .title { font-size:18px; margin-bottom:6px; }
 .notice { color:rgb(255, 234, 0); }
 .notice_wrap { margin-top:18px; } 
