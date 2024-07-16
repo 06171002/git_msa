@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <ul>
+      <li><a href="#" class="active" id="menu1">MENU1</a></li>
+      <li><a href="#" id="menu3">abcdef</a></li>
+      <li><a href="#" id="menu2">newMenu</a></li>
+      <li><a href="#" id="menu3">SignIn</a></li>
+      <li><a href="#" id="menu4">SignUP</a></li>
+    </ul>
+    <div id="div1">
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+    </div>
+    <div id="div2">
+      <p>Ex, tempora velit voluptate laboriosam pariatur fuga</p>
+      <p>Ex, tempora velit voluptate laboriosam pariatur fuga</p>
+      <p>Ex, tempora velit voluptate laboriosam pariatur fuga</p>
+      <p>Ex, tempora velit voluptate laboriosam pariatur fuga</p>
+    </div>
+
+  </div>
+</body>
+
+</html>
+<script>
+  $(document).ready( function(){ 
+    $('#menu1').click( function(){ $('#div1').fadeToggle(); } );
+    $('#menu2').click( function(){ $('#div2').fadeToggle(); } );
+    $('#menu3').click( function(){ $('#div2').fadeToggle(); } );
+   } );
+</script>

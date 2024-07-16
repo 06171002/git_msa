@@ -1,0 +1,17 @@
+*{
+  margin: 0 auto;
+  width: 1400px;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.wrap {max-width:1400px;}
+.header,.footer {height: 100px; text-align: center;}
+.header {background-color: rgb(218, 228, 128);}
+.content {background-color: rgb(158, 194, 241); overflow: hidden;}
+.left {float: left;  background-color: rgb(219, 161, 247); height: 500px; width: 200px;}
+.center {float: left; width: 800px;}
+.right {float: right; background-color: rgb(180, 245, 205); height: 500px; width: 400px;}
+.footer {background-color: rgb(236, 197, 160);}
+.myfix {position: fixed; height: 100px; width: 100px; background-color: rgb(147, 157, 167);}
+
