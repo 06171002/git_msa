@@ -1,0 +1,24 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.aa{
+  border: 5px dotted black;
+  background-color: #e0d073;
+  padding: 20px;
+  margin: 20px;
+  float: left;
+  width: 300px;
+  
+}
+#a{
+  background-clip: border-box;
+}
+#b{
+  background-clip: padding-box;
+}
+#c{
+  background-clip: content-box;
+}
