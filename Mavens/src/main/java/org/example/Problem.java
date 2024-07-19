@@ -14,13 +14,13 @@ public class Problem {
 
     public static int minValue(int[] arr) {
         int min_idx = 0;
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j <= i; j++) {
+
+            for (int j = 0; j < arr.length; j++) {
                 if (arr[min_idx] > arr[j]) {
                     min_idx = j;
                 }
             }
-        }
+
         return arr[min_idx];
 
     }
