@@ -6,8 +6,8 @@ public class Ex02 {
 
     public static void main(String[] args) {
         Board board = new PBoard();
-        PBoard pBoard = (PBoard) new Board();
+//        PBoard pBoard = (PBoard) new Board();
 
-        System.out.println("success");
+        System.out.println("종료");
     }
 }

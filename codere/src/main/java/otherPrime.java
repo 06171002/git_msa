@@ -5,9 +5,16 @@ public class otherPrime {
     public static void main(String[] args) {
         boolean[] arr = new boolean[100];
         Arrays.fill(arr,true);
+
+        sieveOfEratosthenes(arr);
+
+
+
+    }
+
+    private static void sieveOfEratosthenes(boolean[] arr) {
         int count = 0;
         int sum = 0;
-
         for (int i = 2; i < arr.length ; i++) {
             if (arr[i] == true) {
                 count++;
@@ -22,6 +29,5 @@ public class otherPrime {
         System.out.println();
         System.out.println(count);
         System.out.println(sum);
-
     }
 }
