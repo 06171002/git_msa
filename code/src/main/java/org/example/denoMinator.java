@@ -2,14 +2,11 @@ package org.example;
 
 import java.util.Scanner;
 
-public class denoMinator {
-<<<<<<< HEAD
-    public static void main(String[] args) {
-=======
+
 
     public static void main(String[] args) {
 
->>>>>>> c81736778f7f4b083d911d60ad4039ecf979d20e
+
         Scanner sc = new Scanner(System.in);
         int numer1 = sc.nextInt();
         int numer2 = sc.nextInt();
