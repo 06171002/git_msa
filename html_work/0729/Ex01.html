@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1 id="heading">자바스크립트</h1>
+  <p id="text">위 텍스트를 클릭해 보세요</p>
+  <div id="username"></div>
+
+  <script>
+    // const heading = document.querySelector("#heading");
+    // // const clickText = document.querySelector("#text");
+    // heading.onclick = () => {
+    //   heading.style.color = "red";
+    // }
+    
+    // const flagTF = false;
+    // if(flagTF === true) alert("존재하지 않는 아이디");
+    // else flagTF = true;
+
+    // alert("존재하지 않는 아이디");
+    
+    // const reply = 
+    // confirm(("Do you want?"));
+    // prompt("이름을 입력하세요.","이름");
+    
+    // if(reply === true) alert("ok");
+    // else return;
+    
+    const usrname = document.querySelector("#username");
+    const username = prompt("이름을 입력해주세요.");
+    usrname.innerHTML = "어서오세요." + username + "님, 환영합니다.";
+
+    // const name = prompt("이름을 입력하세요.");
+    // document.write("<b><big>" + name + "</big>님, 환영합니다.</b>");
+
+    console.log(username);
+  </script>
+</body>
+</html>
