@@ -85,10 +85,10 @@ from orders, customer,book
 where orders.custid=customer.custid and orders.bookid = book.bookid and customer.name = '박지성';
 
 -- 박지성 구매 도서이름,정가와 가격차이
-select book.bookname, book.price
+select book.bookname, book.price, orders.saleprice, price - saleprice
 from orders,book,customer
 where orders.bookid=book.bookid and orders.custid=customer.custid and customer.name = '박지성'
-group by book.bookname;
+group by book.bookname,book.price, orders.saleprice;
 
 -- 박지성이 구매하지 않은 도서이름
 select bookname
@@ -96,6 +96,7 @@ from orders,book,customer
 where orders.bookid=book.bookid 
 and orders.custid=customer.custid 
 and name not in ('박지성');
+-- name <> '박지성'
 
 
 -- 마당서점 도서 총개수
@@ -134,6 +135,12 @@ select sum(saleprice), avg(saleprice)
 from orders;
 
 -- 이름 구매액
+select C.name, sum(O.saleprice)
+from customer C, orders O
+where C.custid = O.custid
+group by C.name
+order by C.name;
+
 select customer.address, sum(saleprice)
 from customer, orders
 where orders.custid=customer.custid
@@ -177,6 +184,48 @@ from orders;
 select name
 from customer
 where custid in (select custid from orders);
+
+select C.name
+from customer C
+where C.custid in (select custid from orders);
+
+select C.name,B.bookname
+from customer C, book B
+where C.custid in (select custid from orders) and B.bookid in (select bookid from orders);
+
+select C.name, B.bookname
+from customer C, book B, orders O
+where C.custid=O.custid and B.bookid=O.bookid;
+
+-- 찾았다,,
+select C.name, B.bookname
+from book B, customer C
+where (C.custid ,B.bookid) in (select custid, bookid from orders);
+-- group by order by
+
+-- 마이 배웠데이~
+select C.name, B.bookname
+from customer C inner join orders O on C.custid=O.custid inner join book B on B.bookid=O.bookid;
+-- group by order by
+
+select C.name
+from customer C inner join orders O on C.custid=O.custid
+where O.custid
+group by C.name;
+
+
+select C.name, B.bookname
+from customer C, book B, orders O
+where C.custid = O.custid and B.bookid = O.bookid;
+
+select C.name
+from customer C, orders O
+where C.custid = O.custid
+group by C.name;
+
+select book.bookname
+from book
+where bookid in (select bookid from orders);
 
 
 

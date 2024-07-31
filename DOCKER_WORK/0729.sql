@@ -7,7 +7,23 @@ create table book( bookid integer primary key, bookname varchar(40), publisher v
 create table customer( custid integer primary key, name varchar(40), address varchar(50), phone varchar(20));
 create table orders( orderid integer primary key, custid integer, bookid integer, saleprice integer, orderdate date, foreign key(custid) references customer(custid), foreign key(bookid) references book(bookid));
 
+create table newbook( bookid integer primary key, bookname varchar(20), publisher varchar(20), price integer);
+create table newcustomer( custid integer primary key, name varchar(40), address varchar(40), phone varchar(30));
+create table neworders( orderid integer primary key, custid integer not null, bookid integer not null, saleprice integer, orderdate date, foreign key(custid) references newcustomer(custid), foreign key(bookid) references newbook(bookid));
+drop table neworders;
+create table neworders( orderid integer primary key, custid integer not null, bookid integer not null, saleprice integer, orderdate date, foreign key(custid) references newcustomer(custid) on delete cascade);
+
+alter table newbook add isbn varchar(13);
+
+alter table newbook modify isbn integer;
+
+alter table newbook drop isbn;
+
+
 insert into book values(1, '축구의 역사', '굿스포츠',7000);
+
+
+
 
 show tables;
 describe customer;
