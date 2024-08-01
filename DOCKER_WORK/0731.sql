@@ -156,6 +156,7 @@ group by c.name
 having count(distinct publisher)>1;
 
 
+
 select name ,count(distinct publisher) as 종류
 from book, customer, orders
 where book.bookid=orders.bookid
@@ -175,9 +176,11 @@ having count(*);
 
 
 -- 전체 고객의 30%이상이 구매한 도서
-select b.bookname
-from book b 
-where b.bookid
+select b.bookname, count(*)
+from book b inner join orders o on b.bookid=o.bookid inner join customer c on c.custid=o.custid
+group by b.bookname
+having count(*) > 0.3*(select count(*) from customer);
+
 
 
 

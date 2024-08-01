@@ -35,5 +35,13 @@
 .sub_menu { display:none; }
 .select {  color:#d69e34!important; }
 
+
 /* 컨텐츠 right */
-.content .wrap .right { position:relative; display:block; height:100%; min-height:auto; width:calc(100% - 260px); background:#000; }
+.content .wrap .right { position:relative; display:block; height:100%; min-height:auto; width:calc(100% - 260px); }
+.content .wrap .right .right_tab { position:absolute; right:160px; height:inherit; border-bottom:1px solid #7f7368; width:auto; margin-left:0; margin-right:0; left:0; }
+.content .wrap .right .right_tab .tab_control {  position:absolute; outline:0; width:100%; height:inherit; }
+.content .wrap .right .right_tab .tab_control .scroll {position: absolute; width: 1000%; height: inherit;}
+
+.content .wrap .right .right_top { position:relative; display:flex; flex-wrap:wrap; margin-bottom:20px; }
+.content .wrap .right .right_top .right_box { flex:0 0 50%; max-width:50%; }
+.content .wrap .right .right_top .right_box .box1 { background:#fff; color:#474a54; height:100%; min-height:140px; padding:20px; border:1px solid #ddd; border-radius:5px; }
