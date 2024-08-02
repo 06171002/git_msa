@@ -17,12 +17,20 @@ li {
 address {  
     font-style:normal;
 }
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+    
+    * {
+      font-family: "NotoSans";
+      font-weight: 400;
+      font-style: normal;
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
 .wrap {
     /* position: relative;
     display: block; */
     width: 980px;
     margin: 0 auto;
-    margin-top: 220px;
+    margin-top: 150px;
     background: rgb(255, 234, 0);
 }
 
@@ -37,14 +45,15 @@ address {
     width:50%;
 }
 .logo { margin-bottom: 0; }
-.logo > span {color: hsl(49, 100%, 50%); background-color: #c0bcbc;}
-.title { font-size:18px; margin-bottom:6px; }
-.notice { color:rgb(255, 234, 0); }
-.notice_wrap { margin-top:18px; } 
+.logo > span {color: rgb(92, 77, 77); }
+.title { font-size:18px; margin-bottom:6px; margin-top: 30px;}
+.notice { color:hsl(0, 89%, 64%); }
+.notice_wrap { margin-top:50px; } 
 .notice_wrap li { margin-top:18px; }
 .notice_wrap li:last-child { margin-bottom:0px; }
 .notice_wrap li a:hover { text-decoration: underline; }
 .page { position:relative; border:1px solid #000; margin-top:70px; width: 90%; border-radius:10px; height:50px; line-height:50px; }
+.page ul li:hover{text-decoration: underline;}
 .page ul { position:relative; width:100%; }
 .page ul li { float:left; width:49%; text-align:center; }
 .page ul li:first-child { border-right:1px solid #000; }
@@ -56,20 +65,24 @@ address {
 
 .version { position:relative; border:1px solid black; width: 30%; float: right; margin-top: 20px; border-radius: 10px; height: 30px; line-height: 30px;}
 .version ul {position: relative; width: 100%;}
-.version ul li { float: right; width: 50% ;text-align: center;}
+.version ul li { float: right; width: 49%; text-align: center;}
+.version ul li:first-child {border-left: 1px solid black;}
+.version ul li:hover {background: rgb(179, 177, 177); border-radius: 5px;}
 .login {margin-top: 135px;}
-.lo {font-size: 25px;color: rgb(255, 234, 0);}
-.wel {font-size: 18px; margin-left: 15px; margin-bottom: 0; color: burlywood;}
+.lo {font-size: 25px;color: hsl(0, 89%, 64%);}
+.wel {font-size: 17px; margin-left: 15px; margin-bottom: 0; color: hsl(0, 89%, 64%);}
 .log { position: relative; border: 1px solid black; width: 80%; margin-top: 20px; margin-bottom: 10px; border-radius: 10px; height: 40px; line-height: 40px;}
+.log li:hover {background: rgb(179, 177, 177);}
 .log ul{position: relative; width: 100%;}
-.log li { float: inline-start; margin-left: 10px; margin-top: 0; width: 30%; text-align: center;}
+.log li { float: inline-start; /* margin-top: 0;*/ width: 30%; text-align: center;}
 .log ul li:first-child { border-right: 1px solid black;}
 .log ul li:last-child {border-left: 1px solid black;}
-.input_wrap {width: 290px;height: 85px; display: inline-block; float: left;}
+.input_wrap {width: 290px; margin-top: 5px; height: 90px; display: inline-block; float: left;}
 .in {width: 100%; height: 35px; border-radius: 5px;}
-.btn_login { margin-left: 15px; display: inline-block; width: 85px; height: 85px; background-color: rgb(255, 234, 0); line-height: 85px; text-align: center; border-radius: 10px;}
-.fot {margin-top: 100px; line-height: 25px;}
-.check { margin-top: 5px;}
+.btn_login { margin-left: 15px; display: inline-block; width: 85px; height: 85px; background-color: hsl(56, 90%, 73%); line-height: 85px; text-align: center; border-radius: 10px;}
+.fot {margin-top: 130px; line-height: 25px;}
+.check { margin-top: 10px;}
+.check a:hover{text-decoration: underline;}
 .join { margin-left: 25px;}
 
 

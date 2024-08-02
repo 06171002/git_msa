@@ -27,10 +27,34 @@ group by b.publisher)
 order by b.price;
 
 -- 가장 많은 고객이 구매한 도서의 이름과 구매 고객 수를 출력하세요. (단, 동일한 구매 고객 수를 가진 도서가 여러 권인 경우 모두 출력합니다.)
-select count(*)
+select b.bookname, count(*)
 from orders o inner join book b on b.bookid=o.bookid
-group by b.bookname;
+group by b.bookname
+having count(*) = (select max(cnt) from (select b.bookname, count(*) 'cnt'
+from orders o inner join book b on b.bookid=o.bookid
+group by b.bookname));
 
+select max(c)
+from (select b.bookname, count(*) as c
+from book b inner join orders o on b.bookid=o.bookid
+group by b.bookname) as count;
+
+-- 가장 많은 도서를 주문한 고객의 ID와 주문한 도서의 개수를 출력하세요.
+select o.custid, count(*)
+from orders o
+group by o.custid;
+
+select max(cnt)
+from (select o.custid, count(*) as cnt
+		from orders o
+		group by o.custid) as count;
+
+select o.custid, max(cnt)
+from orders o
+group by o.custid
+having max(cnt) = (select count(*) as cnt
+from orders o
+group by o.custid);
 
 
 
