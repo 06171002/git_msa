@@ -1,4 +1,4 @@
-html, body { overflow-x: hidden; width:100%; min-width:320px; font-weight:400; position:relative; color:var(--txt-color1); line-height: 1.7; font-size:13px; scroll-behavior:smooth; font-family: 'Pretendard', -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-seri; letter-spacing: -0.01em;-webkit-text-size-adjust:none;-webkit-font-smoothing:antialiased;-webkit-touch-callout:none;-moz-osx-font-smoothing: grayscale; } 
+html, body { overflow-x: hidden; width:100%; min-width:320px; font-weight:400; position:relative; color:var(--txt-color1); line-height: 1.7; font-size:16px; scroll-behavior:smooth; font-family: 'Pretendard', -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-seri; letter-spacing: -0.01em;-webkit-text-size-adjust:none;-webkit-font-smoothing:antialiased;-webkit-touch-callout:none;-moz-osx-font-smoothing: grayscale; } 
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, header, hgroup, menu, output, ruby, section, summary, time, mark, audio, video { margin:0; padding:0; border:0; font-weight:400; vertical-align:baseline; -ms-text-size-adjust:100%; -webkit-text-size-adjust: 100%;  -moz-text-size-adjust:100%; -o-text-size-adjust:100%; }
 *, *:after, *::before { -webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box; }
 a, a:link, a:link, a:visited { text-decoration:none;}
@@ -58,4 +58,30 @@ caption {width:0;height:0;font-size:0;line-height:0;zoom:1;text-indent:-99999px;
 table { display:table; width:100%; border-collapse:collapse; border-spacing:0; table-layout:fixed; }
 hr { clear:both; display:none; list-style:none; position:absolute; top:0; left:0; width:0; height:0; margin:0; padding:0; border:0; background:none; font-size:0px; line-height:0; visibility:hidden;}
 caption, legend { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(1px 1px 1px 1px); clip: rect(1px, 1px, 1px, 1px); } 
-.skip { overflow:hidden; position:absolute; border:0; padding:0; margin:0; width:1px; height:1px; clip:rect(1px, 1px, 1px, 1px); clip-path:inset(50%); white-space:nowrap; }  
+.skip { overflow:hidden; position:absolute; border:0; padding:0; margin:0; width:1px; height:1px; clip:rect(1px, 1px, 1px, 1px); clip-path:inset(50%); white-space:nowrap; }
+
+.check_wrap { position:relative; display:inline-block; }
+.checkbox { position:relative; }
+.checkbox input { display: none; }
+.checkbox_icon { display: inline-block; width: 20px; height: 20px; background-color: transparent; border: 1px solid #000; position: relative;  cursor: pointer; }
+.checkbox_text { position:relative; display:inline-block; top:-5px; }
+.checkbox_icon::before, .checkbox_icon::after { content: ''; display: inline-block;  width: 1px; height: 0; background-color:#000; position: absolute; transform-origin: left top; }
+.checkbox_icon::before { top: 9px; left: 2px; transform: rotate(-45deg); }
+.checkbox_icon::after { top: 14px; left: 7px;  transform: rotate(-135deg);  }
+.checkbox input:checked + .checkbox_icon { border-color: #000;  }
+.checkbox input:checked + .checkbox_icon::before { height: 6px; transition: all 0.15s ease; }
+.checkbox input:checked + .checkbox_icon::after { height: 13px;  transition: all 0.15s ease 0.15s; }
+.checkbox input:disabled + .checkbox_icon::before,
+.checkbox input:disabled + .checkbox_icon::after { background-color:rgb(199, 199, 199); }
+.checkbox input:disabled + .checkbox_icon { border-color:rgb(224, 224, 224); background:#eee;  }
+.checkbox input:disabled + .checkbox_text { color: rgb(224, 224, 224); }
+/* Checked */
+.checkbox input:checked + label::before { } 
+.checkbox input:checked + label::after { color:var(--txt-color4); }
+/* Disabled */
+.checkbox input:disabled + .check_text  { color:#787878; cursor:auto; } 
+.checkbox input:disabled:checked + .check_text { color:#3c3c3c; cursor:auto; } 
+.checkbox input:disabled + label::before { background:#eee; } 
+.checkbox input:disabled + label::after { background:none; } 
+.checkbox input:disabled:checked + label::before,
+.checkbox input:disabled:checked + label::after { background:#fff; } 
