@@ -33,9 +33,7 @@ body { background:rgb(255, 255, 255); }
 
 /* 왼쪽 푸터 */
 .footer { position:relative; display:block; margin-top:60px; color:#555555; }
-.footer address { margin-bottom:6px; }
-.footer ul { display:flex; justify-content:flex-start; }
-.footer p { margin-top:20px; }
+.footer p { margin-top:70px; }
 
 /* 언어 */
 .version { position:relative; width: 30%; float:right; margin:20px 0 10px 0; }
@@ -63,6 +61,8 @@ body { background:rgb(255, 255, 255); }
 .input_wrap { position: relative; display:flex; flex-wrap: wrap; justify-content: space-between; width:75%; }
 .input_wrap > .in:first-child {margin-bottom: 10px;}
 .btn_login { position:relative; width:20%; background:#ffc300; text-align:center; border-radius:10px;}
+.btn_login a {padding: 25px;}
+
 
 .login_bottom { position:relative; display:flex; justify-content:flex-start; align-items:center;  }
 .check { margin-top:10px;}
@@ -70,5 +70,5 @@ body { background:rgb(255, 255, 255); }
 .join { margin-left:25px;}
 
 /* 오른쪽 푸터 */
-.fot { margin-top:50px; line-height:25px; }
+.fot { margin-top:110px; line-height:25px; font-size: 14px;}
 

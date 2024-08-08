@@ -32,18 +32,14 @@
         </ul>
       </div>
       <div class="footer">
-        <address>우)41566 대구 중구 중앙대로 394 제일빌딩 5층</address>
-        <ul class="tel">
-          <li>
-            <span>학과 전화번호</span>
-            <a href="tel:053-950-5114">053-950-5114</a>,
-          </li>
-          <li>
-            <span>학과 전화번호</span>
-            <a href="tel:053-950-5114">053-950-5114</a>
-          </li>
-        </ul>
-        <p>Copyright(c) Minions National University. All rights reserved.</p>
+        <p>
+          (40404) 바나나시 바나나구 바나나대로 1234
+          <br>
+          TEL: 053-123-4567 FAX: 053-123-4568
+           <br />
+           Copyright © 2024 MINIONS
+           UNIVERSITY. All rights reserved.
+        </p>
       </div>
     </div>
     <div class="right">
@@ -70,7 +66,7 @@
           <input class="in" type="password" name="password" id="password" placeholder="Password">
         </div>
         <button type="button" id="btn-login" class="btn_login" style="cursor: pointer;">
-          <span>로그인</span>
+          <span><a class="a_login" href="./school/minions_uni.html">로그인</a></span>
         </button>
       </div>
       <div class="login_bottom">
@@ -93,10 +89,23 @@
         <span>개강후 이용가능: 포털,통합정보시스템(모든 메뉴),도서관,WI-FI등</span><br>
         <span>* 미니언즈대학 관련 시스템은 통합아이디로 이용하실 수 있습니다.</span><br>
         <span>* 개인정보 보호를 위해 비밀번호는 주기적으로 변경하시기 바랍니다.</span><br>
-        <span>개인정보 처리방침|이메일무단수집거부</span><br>
       </div>
     </div>
   </div>
 </body>
 
 </html>
+<script>
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Enter') {
+    // 엔터키가 눌렸을 때
+    const loginButton = document.querySelector('.btn_login'); // 로그인 버튼 가져오기
+    const loginLink = loginButton.querySelector('.a_login'); // 버튼 내부의 링크 가져오기
+
+    if (loginLink) {
+      // 링크가 존재하는지 확인
+      loginLink.click(); // 링크 클릭
+    }
+  }
+});
+</script>
