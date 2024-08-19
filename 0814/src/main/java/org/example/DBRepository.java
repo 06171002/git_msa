@@ -16,7 +16,7 @@ public class DBRepository {
             int age = sc.nextInt();
 
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/aaa","root","1234");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/aaa","root","1234");
             System.out.println("연결성공");
             PreparedStatement pstmt = conn.prepareStatement("insert into aaa (name,age) values (?,?)");
             pstmt.setString(1,name);
