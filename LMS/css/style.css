@@ -60,13 +60,14 @@ body { background:rgb(255, 255, 255); }
 /* .log ul li:last-child {border-left: 1px solid black;} */
 
 .container { position:relative; display:flex; justify-content:space-between; width:100%; margin-bottom:15px; }
+.form{ position: relative; display: flex; justify-content: space-between;}
 .input_wrap { position: relative; display:flex; flex-wrap: wrap; justify-content: space-between; width:75%; }
 .input_wrap > .in:first-child {margin-bottom: 10px;}
 .btn_login { position:relative; width:20%; background:#ffc300; text-align:center; border-radius:10px;}
 .btn_login a {padding: 25px;}
 
 
-.login_bottom { position:relative; display:flex; justify-content:flex-start; align-items:center;  }
+.login_bottom { position:relative; display:flex; justify-content:flex-start; align-items:center; }
 .check { margin-top:10px;}
 .check a:hover{text-decoration:underline;}
 .join { margin-left:25px;}

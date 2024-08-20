@@ -7,6 +7,7 @@
   <title>Document</title>
   <link rel="stylesheet" href="/css/reset.css">
   <link rel="stylesheet" href="/css/style.css">
+  
 </head>
 
 <body>
@@ -55,12 +56,19 @@
       </div>
       <div class="log">
         <ul>
+<<<<<<< HEAD
           <li class="active"><a href="#">아이디 로그인</a></li>
           <li><a href="#">인증서 로그인</a></li>
           <li><a href="#">간편인증 로그인</a></li>
+=======
+          <li><a href="#" >아이디 로그인</a></li>
+          <li><a href="#" >인증서 로그인</a></li>
+          <li><a href="#" >간편인증 로그인</a></li>
+>>>>>>> f8bd41c53257ee019969c507688911ffd9c0de13
         </ul>
       </div>
       <div class="container">
+        <form action="" class="form">
         <div class="input_wrap">
           <input class="in" type="text" name="id" id="id" placeholder="Login ID">
           <input class="in" type="password" name="password" id="password" placeholder="Password">
@@ -68,6 +76,7 @@
         <button type="button" id="btn-login" class="btn_login" style="cursor: pointer;">
           <span><a class="a_login" href="./school/minions_uni.html">로그인</a></span>
         </button>
+        </form>
       </div>
       <div class="login_bottom">
         <div class="check">
@@ -92,16 +101,26 @@
       </div>
     </div>
   </div>
+  <script>
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Enter') {
+        // 엔터키가 눌렸을 때
+        const loginButton = document.querySelector('.btn_login'); // 로그인 버튼 가져오기
+        const loginLink = loginButton.querySelector('.a_login'); // 버튼 내부의 링크 가져오기
+    
+        if (loginLink) {
+          // 링크가 존재하는지 확인
+          loginLink.click(); // 링크 클릭
+        }
+      }
+    });
+    
+    </script>
 </body>
 
 </html>
-<script>
-document.addEventListener('keydown', function(event) {
-  if (event.key === 'Enter') {
-    // 엔터키가 눌렸을 때
-    const loginButton = document.querySelector('.btn_login'); // 로그인 버튼 가져오기
-    const loginLink = loginButton.querySelector('.a_login'); // 버튼 내부의 링크 가져오기
 
+<<<<<<< HEAD
     if (loginLink) {
       // 링크가 존재하는지 확인
       loginLink.click(); // 링크 클릭
@@ -114,3 +133,5 @@ document.addEventListener('keydown', function(event) {
   };
 
 </script>
+=======
+>>>>>>> f8bd41c53257ee019969c507688911ffd9c0de13
