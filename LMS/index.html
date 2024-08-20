@@ -55,7 +55,7 @@
       </div>
       <div class="log">
         <ul>
-          <li><a href="#">아이디 로그인</a></li>
+          <li class="active"><a href="#">아이디 로그인</a></li>
           <li><a href="#">인증서 로그인</a></li>
           <li><a href="#">간편인증 로그인</a></li>
         </ul>
@@ -108,4 +108,9 @@ document.addEventListener('keydown', function(event) {
     }
   }
 });
+
+  window.onload = function() {
+    document.getElementById("myLink").focus();
+  };
+
 </script>

@@ -51,6 +51,8 @@ body { background:rgb(255, 255, 255); }
 .log ul { position:relative; width:100%; display:flex; border:1px solid #000; flex-wrap:wrap; justify-content:space-between; }
 /* .log li:hover {background: rgb(179, 177, 177);} */
 .log li { position:relative; background:#fff; width:calc(100% / 3); text-align:center; }
+.log li.active {background: #555;}
+.log li.active a {color: #fff;}
 .log li a { position:relative; display:block; padding:12px; color:#555; }
 .log li a:hover { background:#555; color:#fff; transition:0.4s; }
 .log ul li:first-child::before,
