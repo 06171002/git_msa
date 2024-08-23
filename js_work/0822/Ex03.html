@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="num" value="2"><button id="btn">출력</button>
+    <div id="print"></div>
+
+    <script>
+
+        let num = document.getElementById('num')
+        let btn = document.getElementById('btn');
+        let print = document.getElementById('print');
+
+        btn.onclick = function() {
+            
+            let a = num.value;
+            let tmp = ``;
+            for (let i = 1; i <10; i++){
+                tmp +=`<div>` + a + `*` + i + `=` + (a * i) +`</div>`;
+            }
+
+           print.innerHTML = tmp;
+        };
+    </script>
+</body>
+</html>

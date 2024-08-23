@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let n = prompt('숫자 입력');
+        console.log(n);
+        let result = 1;
+
+        if(n !== null) {
+
+            for (let i = 1; i <= n; i++){
+                result = result*i;
+            }
+            document.write('숫자 출력' +n +` result = `+ result);
+        }else {
+            document.write('숫자 입력하세요.');
+        }
+    </script>
+</body>
+</html>

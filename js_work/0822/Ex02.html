@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <button id="aa">요소추가</button>
+    <div id="print"></div>
+    <script>
+        const arr = 1;
+        const aa = document.getElementById('aa');
+        const print = document.getElementById('print');
+
+        aa.onclick = function(){
+            // arr.push(50);
+            print.innerHTML = print.innerHTML + arr;
+        }
+       
+    </script>
+</body>
+</html>
