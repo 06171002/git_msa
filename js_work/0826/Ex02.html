@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            background-color: antiquewhite;
+            padding: 50px
+        }
+        label {
+            margin-bottom: 10px;
+        }
+
+        input {
+            margin-bottom: 10px;
+            border: cornflowerblue;
+            height: 30px;
+        }
+        input:focus {
+            outline: none;
+        }
+
+        .btn {
+            
+            background-color: aquamarine;
+
+        }
+
+        
+
+        .btn:hover {
+            background-color: blanchedalmond;
+        }
+        .tbl {
+            display: flex;
+            justify-content: center;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <label for="">총 몇명?</label>
+        <input type="text" name="" id="total" placeholder="총 몇명인지 입력하세요.">
+        <label for="">한 줄에 몇명</label>
+        <input type="text" name="" id="columncount">
+        <div class="btn_div">
+            <button class="btn" id="btn">확인</button>
+        </div>
+    </div>
+
+    <div>
+        <h1>좌석</h1>
+        <div id="print" class="tbl"></div>
+    </div>
+    <script>
+        let btn = document.getElementById('btn');
+        let total = document.getElementById('total');
+        let columncount = document.getElementById('columncount');
+        let print = document.getElementById('print');
+        document.getElementById("print").style.border = "1px solid gray";
+
+        const start = "<table>";
+        const end = "</table>"
+        
+
+        document.getElementById('btn').onclick = () => {
+            if (total.value >100) {
+                alert('총 인원수는 100명보다 작아야 합니다.');
+            }
+            if (columncount.value > 10) {
+                alert('한 줄에 10명보다 작아야 합니다.');
+            }
+            console.log(`total.value = ${total.value} columncount.value = ${columncount.value}`);
+
+            const lineNum = total.value/columncount.value;
+            let row = "";
+            let num = 1;
+            for ( let i = 1; i < lineNum; i++){
+                row = row +'<tr>';
+                    for ( let j = 0; j < columncount.value; j++){
+                        row = row + `<td>좌석${num}</td>`;
+                        if (num == Number(total.value)){
+                            break;
+                        }
+                        num++;
+                        
+                    }
+                row = row +'</tr>';    
+            }
+            print.innerHTML = `${start}${row}${end}`;
+        }
+    </script>
+</body>
+
+</html>
