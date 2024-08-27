@@ -1,9 +1,5 @@
 package org.example;
 
-import com.mysql.cj.x.protobuf.MysqlxDatatypes;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main1 {
@@ -33,9 +29,10 @@ public class Main1 {
                 reNum = ((tmp%10)*10) + newNum%10;
                 if (reNum == N){
                     break;
-                }else {
-                 return;
+                } else {
+                    continue;
                 }
+
             }
             System.out.println(cnt);
         }
