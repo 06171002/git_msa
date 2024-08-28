@@ -13,6 +13,6 @@ public class Problem {
 
         int d = 0;
 
-        d = b+c
+
     }
 }
