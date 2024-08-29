@@ -1,6 +1,4 @@
-package repository;
-
-import lombok.Getter;
+package org.example.repository.connection;
 
 public abstract class ConnectionConst {
 

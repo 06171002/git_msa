@@ -1,10 +1,10 @@
-package domain;
+package org.example.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-
-@Getter @Setter
+//import lombok.AllArgsConstructor;
+//import lombok.Getter;
+//import lombok.Setter;
+//
+//@Getter @Setter
 public class Item {
 
     private long id;
@@ -24,5 +24,33 @@ public class Item {
         this.company = company;
         this.size = size;
         this.color = color;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public String getDateOfMenufac() {
+        return dateOfMenufac;
+    }
+
+    public String getOrigin() {
+        return origin;
+    }
+
+    public String getCompany() {
+        return company;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public String getColor() {
+        return color;
     }
 }

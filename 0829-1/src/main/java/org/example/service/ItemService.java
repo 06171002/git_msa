@@ -1,22 +1,33 @@
-package service;
+package org.example.service;
 
-import domain.Item;
-import repository.ItemRepository;
+
+import org.example.domain.Item;
+import org.example.repository.ItemRepository;
 
 import java.sql.SQLException;
 import java.util.Scanner;
 
 public class ItemService {
 
-    private final ItemRepository itemRepository;
+    private final ItemRepository itemRepository = new ItemRepository();
 
-    public ItemService(ItemRepository itemRepository) {
-        this.itemRepository = itemRepository;
+//    public ItemService(ItemRepository itemRepository) {
+//        this.itemRepository = itemRepository;
+//    }
+    public void service() {
+        int i;
+        while (true) {
+            Scanner sc = new Scanner(System.in);
+            i = sc.nextInt();
+            if (i == 0) {
+
+                createItem();
+            } else if (i == 1) {
+
+            }
+
+        }
     }
-
-//    ItemRepository itemRepository1 = new ItemRepository();
-//
-//    ItemService itemService = new ItemService(itemRepository1);
 
     public void createItem() {
         Scanner sc = new Scanner(System.in);
@@ -36,6 +47,4 @@ public class ItemService {
             e.printStackTrace();
         }
     }
-
-//    public Item selectItem()
 }

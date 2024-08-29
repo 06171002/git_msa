@@ -6,11 +6,15 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@AllArgsConstructor
 public class CartItem {
 
-    private long cartItemID;
+    private long cartItemId;
     private long totalPrice;
     private int count;
     // cartId,itemId FK
+
+    public CartItem(long totalPrice, int count) {
+        this.totalPrice = totalPrice;
+        this.count = count;
+    }
 }

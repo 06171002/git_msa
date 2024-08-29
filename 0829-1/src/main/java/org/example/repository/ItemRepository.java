@@ -1,10 +1,10 @@
-package repository;
+package org.example.repository;
 
-import domain.Item;
+import org.example.domain.Item;
 
-import static repository.connection.ConnectionConst.*;
-import static repository.connection.DBConnectionUtil.close;
-import static repository.connection.DBConnectionUtil.getConnection;
+import static org.example.repository.connection.ConnectionConst.*;
+import static org.example.repository.connection.DBConnectionUtil.close;
+import static org.example.repository.connection.DBConnectionUtil.getConnection;
 
 import java.sql.*;
 import java.util.List;

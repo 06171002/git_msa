@@ -6,9 +6,9 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@AllArgsConstructor
 public class CategoryItem {
 
     private long id;
     // itemID,categoryId FK
+    
 }
