@@ -1,6 +1,4 @@
-package repository;
-
-import java.sql.*;
+package repository.impl;
 
 public class CartItemRepository {
 

@@ -1,4 +1,4 @@
-package repository;
+package repository.impl;
 
 import domain.Item;
 
@@ -9,6 +9,7 @@ import static repository.connection.DBConnectionUtil.getConnection;
 import java.sql.*;
 import java.util.List;
 import java.util.Optional;
+import java.util.Scanner;
 
 public class ItemRepository {
 
@@ -27,6 +28,7 @@ public class ItemRepository {
         pstmt.setString(5,item.getCompany());
         pstmt.setString(6,item.getSize());
         pstmt.setString(7,item.getColor());
+        pstmt.executeUpdate();
 
         close(conn,pstmt,rs);
     }
@@ -83,11 +85,22 @@ public class ItemRepository {
         close(conn,pstmt,rs);
     }
 
-//    @Override
-//    public void update() throws SQLException {
-//        conn = DriverManager.getConnection(URL,USER,PASSWORD);
-//        pstmt = conn.prepareStatement("update item set name");
-//
-//    }
+    public void update(Item item,Long id) throws SQLException {
+        conn = getConnection();
+        pstmt = conn.prepareStatement("update item " +
+                "set name = ?, price = ?, dateOfMenufac = ?, origin = ?, company = ?, size = ?, color = ? " +
+                "where id = ?");
+        pstmt.setString(1,item.getName());
+        pstmt.setInt(2,item.getPrice());
+        pstmt.setString(3,item.getDateOfMenufac());
+        pstmt.setString(4,item.getOrigin());
+        pstmt.setString(5,item.getCompany());
+        pstmt.setString(6,item.getSize());
+        pstmt.setString(7,item.getColor());
+        pstmt.setLong(8,id);
+        pstmt.executeUpdate();
 
+        close(conn,pstmt,rs);
+
+    }
 }
