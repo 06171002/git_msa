@@ -1,20 +1,22 @@
 package domain;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.Setter;
 
 @Getter
-@Setter
+
 public class CartItem {
 
-    private long cartItemId;
-    private long totalPrice;
+    private Long cartItemId;
+    private Long totalPrice;
     private int count;
+    private Long cartId;
+    private Long itemId;
     // cartId,itemId FK
 
-    public CartItem(long totalPrice, int count) {
+    public CartItem(Long totalPrice, int count, Long cartId, Long itemId) {
         this.totalPrice = totalPrice;
         this.count = count;
+        this.cartId = cartId;
+        this.itemId = itemId;
     }
 }

@@ -1,24 +1,21 @@
 package domain;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.Setter;
-
-import java.util.Date;
 
 @Getter
-@Setter
 public class Order {
 
-    private long id;
+    private Long id;
     private String date;
     private int totalPrice;
     private String status;
+    private Long member_id;
     //member_id FK
 
-    public Order(String date, int totalPrice, String status) {
+    public Order(String date, int totalPrice, String status, Long member_id) {
         this.date = date;
         this.totalPrice = totalPrice;
         this.status = status;
+        this.member_id = member_id;
     }
 }

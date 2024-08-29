@@ -1,17 +1,14 @@
 package repository.impl;
 
-import common.Role;
-import domain.Item;
 import domain.Member;
-
 
 import static repository.connection.ConnectionConst.*;
 import static repository.connection.DBConnectionUtil.close;
 import static repository.connection.DBConnectionUtil.getConnection;
 
-
 import java.sql.*;
 import java.util.List;
+import java.util.Locale;
 import java.util.Optional;
 
 public class MemberRepository {
@@ -44,24 +41,72 @@ public class MemberRepository {
         pstmt = conn.prepareStatement("select * from MEMBER");
         rs = pstmt.executeQuery();
 
-        List<Item> list = null;
+        List<Member> list = null;
         while (rs.next()){
-            Item item = new Item(
+            Member member = new Member(
                     rs.getString("name"),
-                    rs.getInt("price"),
-                    rs.getString("dateOfMenufac"),
-                    rs.getString("origin"),
-                    rs.getString("company"),
-                    rs.getString("size"),
-                    rs.getString("color")
+                    rs.getString("birth"),
+                    rs.getString("phone"),
+                    rs.getString("email"),
+                    rs.getString("address"),
+                    rs.getString("loginId"),
+                    rs.getString("password"),
+                    rs.getString("home"),
+                    rs.getString("role")
             );
-            list.add(item);
+            list.add(member);
         }
         close(conn,pstmt,rs);
         return list;
     }
 
-    public Optional<Member> findById(Long id) {}
+    public Optional<Member> findById(Long id) throws SQLException {
+        conn = DriverManager.getConnection(URL, USER, PASSWORD);
+        pstmt = conn.prepareStatement("select * from MEMBER where id = ?");
+        pstmt.setLong(1,id);
+        rs = pstmt.executeQuery();
+        Member member = null;
+        if (rs.next()) {
+             member = new Member(
+                    rs.getString("name"),
+                    rs.getString("birth"),
+                    rs.getString("phone"),
+                    rs.getString("email"),
+                    rs.getString("address"),
+                    rs.getString("roginId"),
+                    rs.getString("password"),
+                    rs.getString("home"),
+                    rs.getString("role")
+            );
+        }
+        close(conn,pstmt,rs);
+        return Optional.of(member);
+    }
 
-    public void deleteById(Long id) {}
+    public void deleteById(Long id) throws SQLException {
+        conn = DriverManager.getConnection(URL,USER,PASSWORD);
+        pstmt = conn.prepareStatement("delete from MEMBER where id =?");
+        pstmt.setLong(1, id);
+        pstmt.executeUpdate();
+
+        close(conn,pstmt,rs);
+    }
+
+    public void updateById(Member member, Long id) throws SQLException {
+        conn = getConnection();
+        pstmt = conn.prepareStatement("update MEMBER " +
+                "set name = ?, birth = ?, phone = ?, email = ?, address = ?, loginId = ?, password = ?, home = ?, role = ? " +
+                "where id = ?");
+        pstmt.setString(1,member.getName());
+        pstmt.setInt(2,member.getPrice());
+        pstmt.setString(3,member.getDateOfMenufac());
+        pstmt.setString(4,member.getOrigin());
+        pstmt.setString(5,member.getCompany());
+        pstmt.setString(6,member.getSize());
+        pstmt.setString(7,member.getColor());
+        pstmt.setLong(8,id);
+        pstmt.executeUpdate();
+
+        close(conn,pstmt,rs);
+    }
 }

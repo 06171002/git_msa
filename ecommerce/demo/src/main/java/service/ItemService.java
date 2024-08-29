@@ -48,7 +48,7 @@ public class ItemService {
         Item item = new Item(name, price,manufact_date,origin,company,size,color);
 
         try{
-            itemRepository.update(item, (long) id);
+            itemRepository.updateById(item, (long) id);
         } catch (SQLException e) {
             e.printStackTrace();
         }
