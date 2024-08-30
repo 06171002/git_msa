@@ -15,7 +15,7 @@ public class Member {
     private String loginId;
     private String password;
     private String home;
-    private Role role;
+    private String role;
 
     public Member(String name,
                   String birth,
@@ -25,7 +25,7 @@ public class Member {
                   String loginId,
                   String password,
                   String home,
-                  Role role) {
+                  String role) {
         this.name = name;
         this.birth = birth;
         this.phone = phone;
@@ -38,9 +38,9 @@ public class Member {
     }
 
     //== 정적 팩토리 메서드 ==//
-    public Member of(String name, String birth) {
-        return new Member(name, birth,
-                null, null, null, null, null, null,
-                Role.USER);
-    }
+//    public Member of(String name, String birth) {
+//        return new Member(name, birth,
+//                null, null, null, null, null, null,
+//                Role.USER);
+//    }
 }

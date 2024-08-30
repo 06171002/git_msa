@@ -36,7 +36,7 @@ public class ItemService {
 
     public void updateItem() {
         Scanner sc = new Scanner(System.in);
-        int id = sc.nextInt();
+        Long id = sc.nextLong();
         String name = sc.next();
         int price = sc.nextInt();
         String manufact_date = sc.next();
@@ -48,7 +48,7 @@ public class ItemService {
         Item item = new Item(name, price,manufact_date,origin,company,size,color);
 
         try{
-            itemRepository.updateById(item, (long) id);
+            itemRepository.updateById(item, id);
         } catch (SQLException e) {
             e.printStackTrace();
         }

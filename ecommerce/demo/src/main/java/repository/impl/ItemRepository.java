@@ -21,7 +21,7 @@ public class ItemRepository {
 
         conn = getConnection();
         pstmt = conn.prepareStatement("insert into item(name,price,manufact_date,origin,company,size,color) values (?,?,?,?,?,?,?)");
-        pstmt.setString(1,item.getname());
+        pstmt.setString(1,item.getName());
         pstmt.setInt(2,item.getPrice());
         pstmt.setString(3,item.getDateOfMenufac());
         pstmt.setString(4,item.getOrigin());

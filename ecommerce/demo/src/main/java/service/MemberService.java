@@ -1,9 +1,7 @@
 package service;
 
 import common.Role;
-import domain.Item;
 import domain.Member;
-import repository.impl.ItemRepository;
 import repository.impl.MemberRepository;
 
 import java.sql.SQLException;
@@ -17,7 +15,7 @@ public class MemberService {
         this.memberRepository = memberRepository;
     }
 
-    public void createItem() {
+    public void createMember() {
         Scanner sc = new Scanner(System.in);
         String name = sc.next();
         String birth = sc.next();
@@ -39,7 +37,25 @@ public class MemberService {
         }
     }
 
-    public void updateItem() {
+    public void selectAll() {
+        try {
+            memberRepository.findAll();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void selectById() {
+        Scanner sc = new Scanner(System.in);
+        Long id = sc.nextLong();
+        try {
+            memberRepository.findById(id);
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void updateMember() {
         Scanner sc = new Scanner(System.in);
         long id = sc.nextLong();
         String name = sc.next();
@@ -57,6 +73,16 @@ public class MemberService {
         try{
             memberRepository.updateById(member, (long) id);
         } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteById() {
+        Scanner sc = new Scanner(System.in);
+        Long id = sc.nextLong();
+        try {
+            memberRepository.deleteById(id);
+        }catch (SQLException e) {
             e.printStackTrace();
         }
     }

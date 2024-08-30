@@ -1,6 +1,7 @@
 package repository.impl;
 
 import domain.Member;
+import common.Role;
 
 import static repository.connection.ConnectionConst.*;
 import static repository.connection.DBConnectionUtil.close;
@@ -29,7 +30,7 @@ public class MemberRepository {
         pstmt.setString(6,member.getLoginId());
         pstmt.setString(7,member.getPassword());
         pstmt.setString(8,member.getHome());
-        pstmt.setString(9,member.getRole().name());
+        pstmt.setString(9,member.getRole());
         pstmt.executeUpdate();
 
         close(conn,pstmt,rs);
@@ -98,13 +99,14 @@ public class MemberRepository {
                 "set name = ?, birth = ?, phone = ?, email = ?, address = ?, loginId = ?, password = ?, home = ?, role = ? " +
                 "where id = ?");
         pstmt.setString(1,member.getName());
-        pstmt.setInt(2,member.getPrice());
-        pstmt.setString(3,member.getDateOfMenufac());
-        pstmt.setString(4,member.getOrigin());
-        pstmt.setString(5,member.getCompany());
-        pstmt.setString(6,member.getSize());
-        pstmt.setString(7,member.getColor());
-        pstmt.setLong(8,id);
+        pstmt.setString(2,member.getBirth());
+        pstmt.setString(3,member.getPhone());
+        pstmt.setString(4,member.getAddress());
+        pstmt.setString(5,member.getLoginId());
+        pstmt.setString(6,member.getPassword());
+        pstmt.setString(7,member.getHome());
+        pstmt.setString(8,member.getRole());
+        pstmt.setLong(9,id);
         pstmt.executeUpdate();
 
         close(conn,pstmt,rs);

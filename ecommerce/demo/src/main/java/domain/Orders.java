@@ -3,7 +3,7 @@ package domain;
 import lombok.Getter;
 
 @Getter
-public class Order {
+public class Orders {
 
     private Long id;
     private String date;
@@ -12,7 +12,7 @@ public class Order {
     private Long member_id;
     //member_id FK
 
-    public Order(String date, int totalPrice, String status, Long member_id) {
+    public Orders(String date, int totalPrice, String status, Long member_id) {
         this.date = date;
         this.totalPrice = totalPrice;
         this.status = status;
