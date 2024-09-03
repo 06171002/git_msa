@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="962af871-a780-4a86-8a49-7e0122df79d6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../0830/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../0830/src/main/java/org/example/domain/Todo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../0830/src/main/java/org/example/repository/MemberRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../0830/src/main/java/org/example/repository/TodoRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../0830/src/main/java/org/example/repository/connection/ConnectionUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../0830/src/main/java/org/example/repository/connection/DBConnectionUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../0830/src/main/java/org/example/service/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../0902/myfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../0902/src/main/java/org/example/Ex01.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../0903/src/main/java/org/example/Ex01.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../0903/src/main/java/org/example/Ex02.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../0903/src/main/java/org/example/Ex03.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../0903/src/main/java/org/example/Ex04.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../0903/src/main/java/org/example/Ex06.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/MyLinkedListV1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../0830/src/main/java/org/example/DBRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../0830/src/main/java/org/example/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../0830/src/main/java/org/example/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../0830/src/main/java/org/example/domain/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecom_test/test/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecom_test/test/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecom_test/test/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecom_test/test/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecom_test/test/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecom_test/test/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecom_test/test/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecom_test/test/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecom_test/test/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecom_test/test/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecom_test/test/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecom_test/test/src/main/java/org/example/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecom_test/test/src/main/java/org/example/common/OrderStatus.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecom_test/test/src/main/java/org/example/common/Role.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecom_test/test/src/main/java/org/example/config/Appconfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecom_test/test/src/main/java/org/example/config/RepositoryManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecom_test/test/src/main/java/org/example/domain/Cart.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecom_test/test/src/main/java/org/example/domain/CartItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecom_test/test/src/main/java/org/example/domain/Category.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecom_test/test/src/main/java/org/example/domain/CategoryItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecom_test/test/src/main/java/org/example/domain/Item.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecom_test/test/src/main/java/org/example/domain/Member.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecom_test/test/src/main/java/org/example/domain/Order.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecom_test/test/src/main/java/org/example/domain/OrderItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecom_test/test/src/main/java/org/example/domain/Review.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecom_test/test/src/main/java/org/example/repository/CartItemRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecom_test/test/src/main/java/org/example/repository/CartRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecom_test/test/src/main/java/org/example/repository/CategoryItemRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecom_test/test/src/main/java/org/example/repository/CategoryRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecom_test/test/src/main/java/org/example/repository/ItemRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecom_test/test/src/main/java/org/example/repository/MemberRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecom_test/test/src/main/java/org/example/repository/OrderItemRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecom_test/test/src/main/java/org/example/repository/OrderRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecom_test/test/src/main/java/org/example/repository/ReviewRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecom_test/test/src/main/java/org/example/service/ItemService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecom_test/test/src/main/java/org/example/service/MemberService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecom_test/test/src/main/java/org/example/service/OrderService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecom_test/test/src/main/java/org/example/service/ReviewService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce/demo/src/main/java/service/Orderservice.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../ecommerce/demo/src/main/java/service/Orderservice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../js_work/0829/package.json" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 2
+}]]></component>
+  <component name="ProjectId" id="2lXK8CfcZaSZFse0wEGQzUWskwz" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "onboarding.tips.debug.path": "D:/git_msa/MyLinkedList/MyLinkedList/src/main/java/org/example/Main.java",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="962af871-a780-4a86-8a49-7e0122df79d6" name="Changes" comment="" />
+      <created>1725320821566</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1725320821566</updated>
+    </task>
+    <servers />
+  </component>
+</project>

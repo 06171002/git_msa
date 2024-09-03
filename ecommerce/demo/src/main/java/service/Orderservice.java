@@ -6,7 +6,8 @@ import repository.impl.OrderRepository;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-public class Orderservice {
+public class
+Orderservice {
 
     private final OrderRepository orderRepository;
 
