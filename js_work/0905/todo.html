@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            border: 1px solid #eee;
+            max-width: 300px;
+            /* padding: 4px; */
+        }
+
+        .container > h1 {
+            margin-left: 30px;
+        }
+
+        ul {
+            font-size: 1.5rem;
+        }
+
+
+        li {
+            list-style: none;
+        }
+        .check{
+            margin-right: 3px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>할 일 목록</h1>
+        <ul>
+            <li><input type="checkbox" id="" name="" class="input">할 일 1</li>
+            <li><input type="checkbox" id="" name="" class="input">할 일 2</li>
+            <li><input type="checkbox" id="" name="" class="input">할 일 3</li>
+            <li><input type="checkbox" id="" name="" class="input">할 일 4</li>
+            <li><input type="checkbox" id="" name="" class="input">할 일 5</li>
+        </ul>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    const checks = document.getElementsByClassName('input');
+    for (let i = 0; i < checks.length; i++) {
+        const element = checks[i];
+        // element.addEventListener('click', function(){ console.log(this + '누름');});
+        element.addEventListener('click', (event) => {
+            
+            console.log(event.target.parentNode.style.textDecoration);
+            console.log(event.target.parentNode.style.color);
+            
+            if(event.target.parentNode.style.textDecoration == 'line-through'){
+                event.target.parentNode.style.color = "";
+                event.target.parentNode.style.textDecoration = '';
+            }
+            else{
+                event.target.parentNode.style.color = "#ccc";
+                event.target.parentNode.style.textDecoration = 'line-through';
+            }
+
+            // event.target.parentNode.style.color = "#ccc";
+            // event.target.parentNode.style.textDecoration = 'line-through';});
+
+            // console.log(event.target.parentNode.style.textDecoration);
+            // console.log(event.target.parentNode.style.color);
+    }
+</script>
