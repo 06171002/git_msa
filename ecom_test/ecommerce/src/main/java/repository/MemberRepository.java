@@ -110,4 +110,8 @@ public class MemberRepository {
 
         close(conn,pstmt,rs);
     }
+
+    public Optional<Member> findByUsername(String username) {
+        return null;
+    }
 }

@@ -16,6 +16,8 @@ public class Session {
     }
 
 
+    public Long getCurrentMemberID() {return currentMember.getMemberId();}
+
     public Member getCurrentMember() {
         return currentMember;
     }

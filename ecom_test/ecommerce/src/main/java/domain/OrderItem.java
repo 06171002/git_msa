@@ -1,5 +1,10 @@
 package domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@Getter
+@AllArgsConstructor
 public class OrderItem {
     private Long orderItemId;
     private int quantity;
@@ -8,10 +13,4 @@ public class OrderItem {
     private Long itemId;
     // orderId,itemId FK
 
-    public OrderItem(int quantity, int price, Long orderId, Long itemId) {
-        this.quantity = quantity;
-        this.price = price;
-        this.orderId = orderId;
-        this.itemId = itemId;
-    }
 }

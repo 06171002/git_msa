@@ -7,7 +7,6 @@ import java.sql.*;
 import java.util.List;
 import java.util.Optional;
 
-import static repository.connection.ConnectionConst.*;
 import static repository.connection.DBConnectionUtil.close;
 import static repository.connection.DBConnectionUtil.getConnection;
 
@@ -25,13 +24,13 @@ public class OrderRepository {
         pstmt.setInt(2,order.getTotalPrice());
         pstmt.setObject(3,order.getStatus());
         pstmt.setLong(4,order.getMemberId());
-        pstmt.executeUpdate();
-
+        pstmt.execute();
         close(conn,pstmt,rs);
 
     }
 
     public List<Order> findAll() throws SQLException {
+
         conn = getConnection();
         pstmt = conn.prepareStatement("select * from orders");
         rs = pstmt.executeQuery();
@@ -67,6 +66,27 @@ public class OrderRepository {
         close(conn,pstmt,rs);
         return Optional.of(orders);
     }
+
+    public List<Order> findMemberId(Long id) throws SQLException {
+        conn = getConnection();
+        pstmt = conn.prepareStatement("select * from orders where member_id = ?");
+        pstmt.setLong(1,id);
+        rs = pstmt.executeQuery();
+
+        List<Order> list = null;
+        while (rs.next()){
+            Order orders = new Order(
+                    rs.getString("date"),
+                    rs.getInt("totalPrice"),
+                    rs.getObject("status",OrderStatus.class),
+                    rs.getLong("memberId")
+            );
+            list.add(orders);
+        }
+        close(conn,pstmt,rs);
+        return list;
+    }
+
 
     public void updateById(String status, Long id) throws SQLException {
         conn = getConnection();

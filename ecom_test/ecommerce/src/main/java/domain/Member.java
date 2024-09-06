@@ -2,8 +2,10 @@ package domain;
 
 import common.Role;
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
+@NoArgsConstructor
 public class Member {
     private Long memberId;
     private String username;

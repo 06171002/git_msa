@@ -1,14 +1,18 @@
 package service;
 
 import common.Session;
+import domain.Item;
 import domain.Member;
 import domain.Order;
+import domain.OrderItem;
 import repository.*;
 
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class OrderService {
     private final OrderRepository orderRepository;
@@ -18,8 +22,6 @@ public class OrderService {
     private final ItemRepository itemRepository;
     private final OrderItemRepository orderItemRepository;
 
-//    public OrderService() {}
-
     public OrderService(OrderRepository orderRepository, MemberRepository memberRepository, CartRepository cartRepository, CartItemRepository cartItemRepository, ItemRepository itemRepository, OrderItemRepository orderItemRepository) {
         this.orderRepository = orderRepository;
         this.memberRepository = memberRepository;
@@ -28,8 +30,6 @@ public class OrderService {
         this.itemRepository = itemRepository;
         this.orderItemRepository = orderItemRepository;
     }
-
-//    OrderRepository orderRepository = new OrderRepository();
 
     public void handleOrderService(Scanner sc) throws SQLException {
         // 상품 조회 -> 장바구니 -> 주문 생성
@@ -54,18 +54,18 @@ public class OrderService {
                     if (isAdmin(currentMember)){
                         changeOrderStatus(sc);
                     }else {
-                        findOrders();
+                        findOrders(sc);
                     }
 
                 case 3:
                     if (!isAdmin(currentMember)){
-                        System.out.println("삭제할 주문 번호");
+                        System.out.println("취소할 주문 번호");
                         Long id = sc.nextLong();
                         Order order = orderRepository.findById(id).orElse(null);
                         if (order == null) {
                             System.out.println("그런 주문은 없습니다.");
                         } else {
-                          if (Objects.equals(order.getMemberId(), Session.getInstance().getCurrentMember().getMemberId())) {
+                          if (Objects.equals(order.getMemberId(), currentMember.getMemberId())) {
                               orderRepository.deleteById(id);
                           } else {
                               System.out.println("님이 주문한게 아닙니다.");
@@ -81,12 +81,43 @@ public class OrderService {
         return currentMember.getUsername().equals("admin");
     }
 
-    private void findOrders() {
-        orderItemRepository.findByUsername();
+    private void findOrders(Scanner sc) throws SQLException {
+
+        Long memberId = Session.getInstance()
+                .getCurrentMember()
+                .getMemberId();
+        orderRepository.findMemberId(memberId);
+
+        System.out.println("상세 조회할 주문 번호");
+        Long id = sc.nextLong();
+        List<OrderItem> listByOrderId = orderItemRepository.findByOrderId(id);
+
+        List<String> itemNames = listByOrderId.stream()
+                .map(o -> extractItemNames(o.getItemId()))
+                .collect(Collectors.toList());
+
+
+        if (listByOrderId == null){
+            System.out.println("주문 번호를 확인해주세요.");
+        }else {
+            System.out.println(listByOrderId);
+            System.out.println(itemNames);
+        }
+    }
+
+    private String extractItemNames(Long itemId){
+        Item item = null;
+        try {
+            item = itemRepository.findById(itemId).orElse(null);
+        } catch (SQLException e) {
+
+        }
+
+        return item.getName();
     }
 
     private void changeOrderStatus(Scanner sc) throws SQLException {
-        System.out.println("변경할 ID");
+        System.out.println("변경할 주문 번호");
         Long id = sc.nextLong();
         System.out.println("변경할 상태");
         String status = sc.next();
@@ -99,6 +130,8 @@ public class OrderService {
 
     private void allOrderSelect() throws SQLException {
         orderRepository.findAll();
+        System.out.println("상세 조회할 주문 번호");
+
     }
 
     private void displayOrderMenu() {
