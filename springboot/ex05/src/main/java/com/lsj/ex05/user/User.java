@@ -30,7 +30,7 @@ public class User {
     @Column(length = 100)
     private String password;
 
-    private LocalDateTime createDate;
+    private LocalDateTime Date;
 
     // JPA CLASS -> talbe CREATE가 됩니다.
 
