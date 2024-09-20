@@ -13,38 +13,62 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="item in arr" :key="item.id">
-            <td class="border text-center">{{ item.id }}</td>
-            <td class="border text-center">{{ item.title }}</td>
-            <td class="border text-center">{{ item.author }}</td>
-            <td class="border text-center">{{ item.regDate }}</td>
-            <td class="border text-center">{{ item.viewCount }}</td>
+          <tr v-for="item in arr" :key="item.id" class="cursor-pointer hover:bg-slate-200" @click="viewPage(item.id)">
+            <td class="border text-center text-lg p-1">{{ item.id }}</td>
+            <td class="border text-center text-lg p-1" >{{ item.title }}</td>
+            <td class="border text-center text-lg p-1">{{ item.author }}</td>
+            <td class="border text-center text-lg p-1">{{ item.regDate }}</td>
+            <td class="border text-center text-lg p-1">{{ item.viewCount }}</td>
           </tr>
         </tbody>
       </table>
+    </div>
+    <div class="flex justify-center mt-5">
+      <ul class="flex space-x-5">
+        <li class="cursor-pointer p-3" v-for="num in totalPages" :key="num" @click="setPageNum(num-1)">{{ num }}</li>
+      </ul>
     </div>
   </div>
 </template>
 
 <script setup>
 import axios from 'axios';
-import { useRoute } from 'vue-router';
+// import { useRoute } from 'vue-router';
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 
 
-const route = useRoute();
+
+const router = useRouter();
 const arr = ref([]);
-console.log("route.params.aa = " + route.params.aa);
-console.log("route.params.bb = " + route.params.bb);
+const totalPages = ref(10);
+const pageNum = ref(0);
 
-axios.get('http://localhost:8080/freeboard')
+const setPageNum = (num) => {
+  pageNum.value = num;
+  getFreeBoard(num);
+}
+
+const viewPage = (id) => {
+  router.push({ name:'freeboardview', params: {id} });
+
+}
+
+const getFreeBoard = (pageNum) => {
+  if(pageNum == undefined) pageNum = 0;
+  axios.get(`http://localhost:8080/freeboard?pageNum=${pageNum}`)
   .then(res => {
     console.log(res.data);
-    arr.value = res.data;
+    arr.value = res.data.list;
+    totalPages.value = res.data.totalPages;
   })
   .catch(e => {
     console.log(e);
   })
+}
+
+
+getFreeBoard();
 </script>
 
 <style lang="scss" scoped></style>

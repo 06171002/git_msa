@@ -1,7 +1,10 @@
-package com.lsj.ex08.freeboard;
+package com.lsj.ex09.freeboard;
 
 
+import com.lsj.ex09.error.BizException;
+import com.lsj.ex09.error.ErrorCode;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -18,9 +21,11 @@ import java.util.List;
 @RequestMapping("freeboard")
 @RequiredArgsConstructor
 @CrossOrigin
+@Slf4j
 public class FreeBoardController {
 
     private final FreeBoardRepository freeBoardRepository;
+    private final ModelMapper modelMapper;
 
     @GetMapping
     public ResponseEntity<FreeBoardResponsePageDto> findAll(@RequestParam(name = "pageNum",defaultValue = "0") int pageNum,
@@ -31,12 +36,12 @@ public class FreeBoardController {
         Pageable pageable = PageRequest.of(pageNum, size,sort);
         Page<FreeBoard> page = freeBoardRepository.findAll(pageable);
 
-        FreeBoardResponsePageDto freeBoardResponsePageDto = new ModelMapper()
+        FreeBoardResponsePageDto freeBoardResponsePageDto = modelMapper
                 .map(page, FreeBoardResponsePageDto.class);
 
         List<FreeBoardResponseDto> list = new ArrayList<>();
         for (FreeBoard freeBoard : freeBoardResponsePageDto.getContent()) {
-            FreeBoardResponseDto freeBoardResponseDto = new ModelMapper().map(freeBoard, FreeBoardResponseDto.class);
+            FreeBoardResponseDto freeBoardResponseDto = modelMapper.map(freeBoard, FreeBoardResponseDto.class);
 
             DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy/MM/dd hh:mm");
             freeBoardResponseDto.setRegDate(dateTimeFormatter.format(freeBoard.getRegDate()));
@@ -52,12 +57,35 @@ public class FreeBoardController {
     @PostMapping
     public ResponseEntity<FreeBoard> save(@RequestBody FreeBoardReqDto freeBoardReqDto) {
 
-        FreeBoard freeBoard = new ModelMapper().map(freeBoardReqDto,FreeBoard.class);
+        FreeBoard freeBoard = modelMapper.map(freeBoardReqDto,FreeBoard.class);
 
         freeBoardRepository.save(freeBoard);
 
         return ResponseEntity.status(200).body(freeBoard);
 
+    }
+
+    @GetMapping("view/{id}")
+    public ResponseEntity<FreeBoardResponseDto> findOne(@PathVariable(name = "id") Long id) {
+
+        FreeBoard freeBoard = freeBoardRepository.findById(id).orElseThrow(() -> new BizException(ErrorCode.NOT_FOUND));
+
+        FreeBoardResponseDto freeBoardResponseDto = modelMapper.map(freeBoard, FreeBoardResponseDto.class);
+
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy/MM/dd hh:mm");
+        freeBoardResponseDto.setRegDate(dateTimeFormatter.format(freeBoard.getRegDate()));
+        freeBoardResponseDto.setModDate(dateTimeFormatter.format(freeBoard.getModDate()));
+
+        return ResponseEntity.ok(freeBoardResponseDto);
+    }
+
+    @DeleteMapping("delete/{id}")
+    public ResponseEntity<String> deleteById(@PathVariable(name = "id") Long id) {
+        freeBoardRepository.findById(id).orElseThrow(() -> new BizException(ErrorCode.NOT_FOUND));
+
+        freeBoardRepository.deleteById(id);
+
+        return ResponseEntity.ok("delete");
     }
 }
 
