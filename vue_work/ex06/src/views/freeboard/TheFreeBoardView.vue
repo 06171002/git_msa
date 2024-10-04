@@ -7,13 +7,14 @@
         <hr>
         <h1>글 내용</h1>
         <p class="h-64">{{ content }}</p>
+        <div v-for="item in list" :key="item">
+        <img :src="`http://localhost:10000/file/download/${item.name}`" width="200" alt="">
+        {{ item.name }}
+        </div>
         <h1>작성일자 : {{ regDate }}</h1>
         <h1>작성자 : {{ author }}</h1>
       </div>
-      <div v-for="item in list" :key="item">
-        <img src="http://localhost:10000/file/download/2.PNG.png" width="200" alt="">
-        {{ item.name }}
-      </div>
+     
       <div class="flex justify-between mt-5">
         <button
           class="px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300" @click="pageMove(id)">수정</button>
@@ -48,7 +49,7 @@ const doDelete = (id) => {
   .then(res => {
     alert(res.data);
     if(res.status == '200') {
-      router.push({name:"freeboardlist"})
+      router.push({name:"freeboardlist"});
     }
   } )
   .catch(e => console.log(e));
@@ -70,7 +71,7 @@ const getFreeBoard = () => {
       console.log(e);
       alert(e.response.data.message);
       router.push({name:"freeboardlist"});
-    })
+    });
 }
 
 getFreeBoard();

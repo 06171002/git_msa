@@ -20,9 +20,9 @@ public class UserReqDto {
     @Min(0)@Max(130)
     private int age;
 
-    @NotEmpty
+//    @NotEmpty
     private String email;
-    @NotEmpty
+//    @NotEmpty
     private String password;
 
     private LocalDateTime createDate;

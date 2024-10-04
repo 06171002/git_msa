@@ -37,7 +37,7 @@ const save = () => {
 
     const formData = new FormData();
     formData.append("file", myfile.value);
-    formData.append("fileDto", new Blob([JSON.stringify({"name":"filename"})], {type:"application/json"} ))
+    formData.append("fileDto", new Blob([JSON.stringify({"name":"filename"})], {type:"application/json"} ));
 
     axios.post('http://localhost:10000/file/upload', formData, { headers: {'content-Type': 'multipart/form-data'} })
     .then((res) => {
@@ -45,8 +45,8 @@ const save = () => {
     })
     .catch((e) => {
         console.log(e);
-    })
-}
+    });
+};
 </script>
 
 <style lang="scss" scoped>

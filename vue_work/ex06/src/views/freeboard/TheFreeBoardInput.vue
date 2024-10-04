@@ -27,18 +27,19 @@
 </template>
 
 <script setup>
-import axios from 'axios'
-import { ref } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
+import axios from 'axios';
+import { ref } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
+import { saveFreeboard } from '@/api/freeboardApi';
 
-const title = ref()
-const content = ref()
+const title = ref();
+const content = ref();
 const myfile = ref(null);
 // const regDate = ref();
 // const author = ref();
 // const id = ref(0);
 
-const router = useRouter()
+const router = useRouter();
 // const route = useRoute();
 // const getFreeBoard = () => {
 
@@ -61,27 +62,28 @@ const onFileChange = (e) => {
   myfile.value = e.target.files[0];
 }
 
-const save = () => {
-  
+const save = async () => {
   const data = {
     title: title.value,
     content: content.value
+  };
+
+  const formData = new FormData();
+  formData.append("data", new Blob(
+                            [JSON.stringify(data)],
+                            { type:'application/json'}
+                          )
+                        );
+  formData.append("file", myfile.value);
+
+  const res = await saveFreeboard(formData);
+  if(res.status==200){
+    alert('저장하였습니다.');
+    router.push({name:'freeboardlist'});
+    return;
   }
-
-const formData = new FormData();
-formData.append("data", new Blob( [JSON.stringify(data)], { type: 'application/json'} ) );
-formData.append('file', myfile.value);
-
-  axios
-    .post('http://localhost:10000/freeboard', formData, { headers:{ 'Content-Type' : 'multipart/form-data'}})
-    .then((res) => {
-      console.log(res)
-      router.push({ name: 'freeboardlist', params: {} })
-    })
-    .catch((e) => {
-      console.log(e)
-    })
-}
+  alert('에러' + res.response.data.message);
+};
 </script>
 
 <style lang="scss" scoped></style>

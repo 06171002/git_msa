@@ -14,6 +14,9 @@
         placeholder="Enter Content here"
       ></textarea>
     </div>
+    <div class="my-3">
+      <input type="file" @click="onFileChange">
+    </div>
     <button
       @click="save"
       class="px-4 py-2 ml-5 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300"
@@ -24,17 +27,24 @@
 </template>
 
 <script setup>
-import axios from 'axios'
-import { ref } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
+import axios from 'axios';
+import { ref } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 
 const title = ref();
 const content = ref();
 const regDate = ref();
 const author = ref();
 const id = ref(0);
-const router = useRouter()
+const router = useRouter();
 const route = useRoute();
+
+const myfile = ref(null);
+
+
+const onFileChange = (e) => {
+  myfile.value = e.target.files[0];
+}
 
 const getFreeBoard = () => {
 
@@ -44,7 +54,7 @@ axios.get(`http://localhost:10000/freeboard/view/${route.query.id}`)
     content.value = res.data.content;
     regDate.value = res.data.regDate;
     author.value = res.data.author;
-    id.value = res.data.id
+    id.value = res.data.id;
   })
   .catch(e => {
     console.log(e);
@@ -59,16 +69,21 @@ const save = () => {
     id: route.query.id,
     title: title.value,
     content: content.value
-  }
+  };
+
+  const formData = new FormData();
+  formData.append("data", new Blob( [JSON.stringify(data)], { type: 'application/json'} ) );
+  formData.append('file', myfile.value);
+
   axios
-    .post('http://localhost:10000/freeboard', data)
+    .post('http://localhost:10000/freeboard', formData)
     .then((res) => {
-      console.log(res)
-      router.push({ name: 'freeboardlist', params: {} })
+      console.log(res);
+      router.push({ name: 'freeboardlist', params: { pagenum: 0 } });
     })
     .catch((e) => {
-      console.log(e)
-    })
+      console.log(e);
+    });
 }
 
 getFreeBoard();

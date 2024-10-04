@@ -1,10 +1,13 @@
 package com.lsj.ex10.user;
 
+import com.lsj.ex10.freeboard.FreeBoard;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -33,6 +36,10 @@ public class User {
     private String password;
 
     private LocalDateTime Date;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+//    @Builder.Default
+    private List<FreeBoard> list;
 
     // JPA CLASS -> talbe CREATE가 됩니다.
 

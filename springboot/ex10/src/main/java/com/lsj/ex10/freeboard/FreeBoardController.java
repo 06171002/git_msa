@@ -23,8 +23,10 @@ import java.io.File;
 import java.nio.file.Paths;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
+//@Controller + @ResponseBody
 @RestController
 @RequestMapping("freeboard")
 @RequiredArgsConstructor
@@ -67,6 +69,20 @@ public class FreeBoardController {
 
             list.add(freeBoardResponseDto);
         }
+
+//        List<FreeBoardResponseDto> list1 = freeBoardResponsePageDto
+//                .getContent()
+//                .stream()
+//                .map(freeBoard -> {
+//                    FreeBoardResponseDto freeBoardResponseDto = modelMapper.map(freeBoard, FreeBoardResponseDto.class);
+//
+//                    DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yy/MM/dd hh:mm");
+//                    freeBoardResponseDto.setRegDate(dateTimeFormatter.format(freeBoard.getRegDate()));
+//                    freeBoardResponseDto.setModDate(dateTimeFormatter.format(freeBoard.getModDate()));
+//
+//                    return freeBoardResponseDto;
+//                }).toList();
+
         freeBoardResponsePageDto.setList(list);
 
         return ResponseEntity.ok(freeBoardResponsePageDto);
@@ -78,7 +94,7 @@ public class FreeBoardController {
     public ResponseEntity<FreeBoard> save(@Valid @RequestPart(name = "data") FreeBoardReqDto freeBoardReqDto, @RequestPart(name = "file", required = false) MultipartFile file) {
 
         if (file != null){
-            String myFilePath = Paths.get("ex10/images/file/").toAbsolutePath() + "/" + file.getOriginalFilename();
+            String myFilePath = Paths.get("ex10/images/file/").toAbsolutePath() + File.pathSeparator + file.getOriginalFilename();
             try {
                 File destFile = new File(myFilePath);
                 file.transferTo(destFile);
@@ -91,11 +107,17 @@ public class FreeBoardController {
 
         freeBoardRepository.save(freeBoard);
 
-        FileEntity fileEntity = new FileEntity();
-        fileEntity.setName(file.getOriginalFilename());
-        fileEntity.setPath(Paths.get("ex10/images/file/").toAbsolutePath().toString());
-        fileEntity.setFreeBoard(freeBoard);
-        fileRepository.save(fileEntity);
+        if (file != null) {
+            FileEntity fileEntity = new FileEntity();
+            fileEntity.setName(file.getOriginalFilename());
+            fileEntity.setPath(Paths.get("ex10/images/file/").toAbsolutePath().toString());
+            fileEntity.setFreeBoard(freeBoard);
+            fileRepository.save(fileEntity);
+            freeBoard.setList(Arrays.asList(fileEntity));
+            freeBoardRepository.save(freeBoard);
+        } else {
+
+        }
 
         return ResponseEntity.status(200).body(freeBoard);
 
@@ -105,6 +127,12 @@ public class FreeBoardController {
     public ResponseEntity<FreeBoardResponseDto> findOne(@PathVariable(name = "id") Long id) {
 
         FreeBoard freeBoard = freeBoardRepository.findById(id).orElseThrow(() -> new BizException(ErrorCode.NOT_FOUND));
+        log.info("error occurs 129 lines");
+
+        freeBoard.setViewCount(freeBoard.getViewCount() + 1);
+        freeBoardRepository.save(freeBoard);
+
+        log.info("{}", freeBoard.getUser());
 
         FreeBoardResponseDto freeBoardResponseDto = modelMapper.map(freeBoard, FreeBoardResponseDto.class);
 
@@ -112,7 +140,11 @@ public class FreeBoardController {
         freeBoardResponseDto.setRegDate(dateTimeFormatter.format(freeBoard.getRegDate()));
         freeBoardResponseDto.setModDate(dateTimeFormatter.format(freeBoard.getModDate()));
 
-        System.out.println(freeBoard.getList());
+        log.info("!!!!!!!!!!!!!!!!!!{}", freeBoard.getUser().getName());
+
+        freeBoardResponseDto.setAuthor(freeBoard.getUser().getName());
+        freeBoardResponseDto.setModAuthor(freeBoard.getUser().getName());
+        freeBoardResponseDto.setId(freeBoard.getUser().getId());
 
         return ResponseEntity.ok(freeBoardResponseDto);
     }

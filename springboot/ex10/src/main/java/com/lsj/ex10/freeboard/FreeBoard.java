@@ -1,6 +1,7 @@
 package com.lsj.ex10.freeboard;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.lsj.ex10.file.FileEntity;
 import com.lsj.ex10.user.User;
 import jakarta.persistence.*;
@@ -32,10 +33,12 @@ public class FreeBoard {
     private String title;
     private String content;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonIgnore
     private User user;
 
     @CreatedBy
+    @Column(updatable = false)
     private String author;
 
     @LastModifiedBy

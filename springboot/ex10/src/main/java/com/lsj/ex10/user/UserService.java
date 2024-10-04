@@ -1,32 +1,11 @@
 package com.lsj.ex10.user;
 
-import com.lsj.ex10.error.BizException;
-import com.lsj.ex10.error.ErrorCode;
-import lombok.RequiredArgsConstructor;
-import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-
 @Service
-@RequiredArgsConstructor
-public class UserService {
+public interface UserService {
 
-    private final UserRepository userRepository;
+    void insert(UserReqDto userReqDto);
 
-    public void insert(UserReqDto userReqDto) {
-
-        Optional<User> optionalUser = userRepository.findByEmail(userReqDto.getEmail());
-
-        optionalUser.ifPresent(user1 ->
-                {throw new BizException(ErrorCode.DUPLICATE_USER);}
-        );
-
-        ModelMapper modelMapper = new ModelMapper();
-        User user = modelMapper.map(userReqDto, User.class);
-
-        userRepository.save(user);
-    }
-
-
+    void update(UserReqDto userReqDto);
 }

@@ -54,9 +54,11 @@ public class FileController {
     public String upload(@RequestPart(name = "file") MultipartFile file, @RequestPart(name = "fileDto") FileReqDto fileReqDto) {
 
         try {
-            String myFilePath = image.toAbsolutePath() + "/" + file.getOriginalFilename();
+            String fileName = file.getOriginalFilename();
+            String filePath = image.toString() + File.pathSeparator + fileName;
+//            String myFilePath = image.toAbsolutePath() + File.pathSeparator + file.getOriginalFilename();
 
-            File saveFile = new File(myFilePath);
+            File saveFile = new File(filePath);
             file.transferTo(saveFile);
 
             FileEntity fileEntity = modelMapper.map(fileReqDto,FileEntity.class);
@@ -72,7 +74,7 @@ public class FileController {
     }
 
     @GetMapping("/download/{fileName}")
-    public ResponseEntity<Resource> downloadFile(@PathVariable String fileName) throws IOException {
+    public ResponseEntity<Resource> downloadFile(@PathVariable(name = "fileName") String fileName) throws IOException {
         // 파일이 저장된 경로
         Path filePath = image.resolve(fileName);
         Resource resource = new UrlResource(filePath.toUri());

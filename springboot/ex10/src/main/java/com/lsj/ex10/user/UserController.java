@@ -34,10 +34,8 @@ public class UserController {
 
     @PutMapping("update")
     public ResponseEntity<String> update(@Valid @RequestBody UserReqDto userReqDto) {
-        ModelMapper modelMapper = new ModelMapper();
-        User user = modelMapper.map(userReqDto, User.class);
 
-        userRepository.save(user);
+        userService.update(userReqDto);
 
         return ResponseEntity.status(200).body("success update");
     }

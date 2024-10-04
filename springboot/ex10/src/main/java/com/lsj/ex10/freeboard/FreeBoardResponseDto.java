@@ -17,7 +17,8 @@ public class FreeBoardResponseDto {
     private String content;
 
 
-    private User user;
+//    private User user;
+    private Long userId;
 
     private String author;
 
