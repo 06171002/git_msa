@@ -1,1 +1,1 @@
-export const GLOBAL_URL = 'http://localhost:10000';
+export const GLOBAL_URL = 'http://localhost:8080';

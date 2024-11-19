@@ -1,0 +1,5 @@
+docker run -d --name my-nginx -p 80:80 nginx
+
+cd dist
+
+docker cp . my-nginx:/usr/share/nginx/html

@@ -75,13 +75,13 @@ const setPageNum = async(num) => {
 
 const viewPage = (id) => {
   router.push({ name: 'freeboardview', params: { id } });
-}
+};
 
 watchEffect(async()=>{
   const res = await getFreeBoard();
   arr.value = res.data.list;
   totalPages.value = res.data.totalPages;
-});
+})
 </script>
 
 <style lang="scss" scoped></style>

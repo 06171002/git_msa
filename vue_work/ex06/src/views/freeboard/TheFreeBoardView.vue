@@ -8,7 +8,7 @@
         <h1>글 내용</h1>
         <p class="h-64">{{ content }}</p>
         <div v-for="item in list" :key="item">
-        <img :src="`http://localhost:10000/file/download/${item.name}`" width="200" alt="">
+        <img :src="`http://localhost:8080/file/download/${item.name}`" width="200" alt="">
         {{ item.name }}
         </div>
         <h1>작성일자 : {{ regDate }}</h1>
@@ -45,7 +45,7 @@ const pageMove = () => {
 }
 
 const doDelete = (id) => {
-  axios.delete(`http://localhost:10000/freeboard/delete/${id}`)
+  axios.delete(`http://localhost:8080/freeboard/delete/${id}`)
   .then(res => {
     alert(res.data);
     if(res.status == '200') {
@@ -58,7 +58,7 @@ const doDelete = (id) => {
 
 const getFreeBoard = () => {
 
-  axios.get(`http://localhost:10000/freeboard/view/${route.params.id}`)
+  axios.get(`http://localhost:8080/freeboard/view/${route.params.id}`)
     .then(res => {
       title.value = res.data.title;
       content.value = res.data.content;

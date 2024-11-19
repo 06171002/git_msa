@@ -12,7 +12,7 @@
   const imageUrl = ref(null);
   const downloadImage = async () => {
     try {
-      const response = await axios.get('http://localhost:10000/file/download/016.png', {
+      const response = await axios.get('http://localhost:8080/file/download/016.png', {
         responseType: 'blob' // 이미지를 blob으로 받아옴
       });
   

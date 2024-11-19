@@ -1,0 +1,5 @@
+docker rmi 06171002/freeboardvue
+docker rmi freeboardvue
+
+docker build -t 06171002/freeboardvue .
+docker run -d -p 5173:5173 --name freeboardvue 06171002/freeboardvue

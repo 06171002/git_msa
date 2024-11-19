@@ -86,6 +86,8 @@ public class FreeBoardController {
         freeBoardResponsePageDto.setList(list);
 
         return ResponseEntity.ok(freeBoardResponsePageDto);
+//        return ResponseEntity.status()
+//                .body(ResponseDto.success());
     }
 
 
@@ -140,11 +142,11 @@ public class FreeBoardController {
         freeBoardResponseDto.setRegDate(dateTimeFormatter.format(freeBoard.getRegDate()));
         freeBoardResponseDto.setModDate(dateTimeFormatter.format(freeBoard.getModDate()));
 
-        log.info("!!!!!!!!!!!!!!!!!!{}", freeBoard.getUser().getName());
-
-        freeBoardResponseDto.setAuthor(freeBoard.getUser().getName());
-        freeBoardResponseDto.setModAuthor(freeBoard.getUser().getName());
-        freeBoardResponseDto.setId(freeBoard.getUser().getId());
+//        log.info("!!!!!!!!!!!!!!!!!!{}", freeBoard.getUser().getName());
+//
+//        freeBoardResponseDto.setAuthor(freeBoard.getUser().getName());
+//        freeBoardResponseDto.setModAuthor(freeBoard.getUser().getName());
+//        freeBoardResponseDto.setId(freeBoard.getUser().getId());
 
         return ResponseEntity.ok(freeBoardResponseDto);
     }
@@ -152,6 +154,7 @@ public class FreeBoardController {
     @DeleteMapping("delete/{id}")
     public ResponseEntity<String> deleteById(@PathVariable(name = "id") Long id) {
         freeBoardRepository.findById(id).orElseThrow(() -> new BizException(ErrorCode.NOT_FOUND));
+
 
         freeBoardRepository.deleteById(id);
 

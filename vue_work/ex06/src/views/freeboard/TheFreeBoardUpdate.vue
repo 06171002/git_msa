@@ -48,7 +48,7 @@ const onFileChange = (e) => {
 
 const getFreeBoard = () => {
 
-axios.get(`http://localhost:10000/freeboard/view/${route.query.id}`)
+axios.get(`http://localhost:8080/freeboard/view/${route.query.id}`)
   .then(res => {
     title.value = res.data.title;
     content.value = res.data.content;
@@ -76,7 +76,7 @@ const save = () => {
   formData.append('file', myfile.value);
 
   axios
-    .post('http://localhost:10000/freeboard', formData)
+    .post('http://localhost:8080/freeboard', formData)
     .then((res) => {
       console.log(res);
       router.push({ name: 'freeboardlist', params: { pagenum: 0 } });

@@ -47,7 +47,7 @@ const save = () => {
 
   formData.append("fileDto", new Blob([JSON.stringify({ "name": "filename" })], { type: "application/json" }));
 
-  axios.post('http://localhost:10000/file/uploads', formData, { headers: { 'content-Type': 'multipart/form-data' } })
+  axios.post('http://localhost:8080/file/uploads', formData, { headers: { 'content-Type': 'multipart/form-data' } })
     .then((res) => {
       console.log(res);
     })
