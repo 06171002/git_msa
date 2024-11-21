@@ -1,0 +1,4 @@
+docker rmi 06171002/second-service:msa.k8.01
+
+docker build -t 06171002/second-service:msa.k8.01 .
+docker push 06171002/second-service:msa.k8.01

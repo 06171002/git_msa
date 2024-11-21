@@ -34,25 +34,25 @@ mh:
 server:
   port: 20000
 
-eureka:
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      defaultZone: http://localhost:8761/eureka
-  #      defaultZone: http://localhost:8762/eureka, http://kubernetes.docker.internal:8763/eureka
-  instance:
-    instance-id: ${spring.cloud.client.ip-address}:${spring.application.instance_id:${random.value}}
-    prefer-ip-address: true
+#eureka:
+#  client:
+#    register-with-eureka: true
+#    fetch-registry: true
+#    service-url:
+#      defaultZone: http://localhost:8761/eureka
+#  #      defaultZone: http://localhost:8762/eureka, http://kubernetes.docker.internal:8763/eureka
+#  instance:
+#    instance-id: ${spring.cloud.client.ip-address}:${spring.application.instance_id:${random.value}}
+#    prefer-ip-address: true
 
 
-logging:
-  level:
-    com.green.userservice.feignclient: DEBUG
-  pattern:
-    level: '%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]'
+#logging:
+#  level:
+#    com.green.userservice.feignclient: DEBUG
+#  pattern:
+#    level: '%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]'
 
-#management:
+management:
 #  #   tracing:
 #  #     sampling:
 #  #       probability: 1.0
@@ -64,15 +64,16 @@ logging:
 #  #       endpoint: http://localhost:9411/api/v2/spans
 #
 #
-#  endpoints:
-#    web:
-#      exposure:
-#        include: "*"
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 
 
 token:
-  expiration_time: 86400000
-  secret: abcdefghijklmnopqrstuvwxyz01234567890abcdefghijklmnopqrstuvwxyz01234567890
+  access_token_expiration_time: 86400 # 하루
+  refresh_token_expiration_time: 2592000 # 한달
+  secret: abcdefghijklmnopqrstuvwxyz01234567890
 
 gateway:
   ip: 127.0.0.1

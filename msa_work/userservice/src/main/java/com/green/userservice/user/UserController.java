@@ -2,6 +2,7 @@ package com.green.userservice.user;
 
 
 import com.green.userservice.user.service.UserService;
+import com.green.userservice.user.vo.LoginResponse;
 import com.green.userservice.user.vo.UserRequest;
 import com.green.userservice.user.vo.UserResponse;
 import jakarta.validation.Valid;
@@ -10,7 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("users")
+@RequestMapping("user-service")
 @RequiredArgsConstructor
 public class UserController {
 
@@ -23,10 +24,17 @@ public class UserController {
         return ResponseEntity.ok(null);
     }
 
-    @GetMapping("login/{user-id}")
-    public ResponseEntity<UserResponse> getUser(@PathVariable("user-id") Long userId) {
-        UserResponse userResponse = userService.getUser(userId);
-        return ResponseEntity.ok(userResponse);
+    @GetMapping("list")
+    public ResponseEntity<?> getUsers() {
+
+        return ResponseEntity.ok(userService.getUserList());
+    }
+
+    @GetMapping("login")
+    public ResponseEntity<?> getUser(@RequestParam(value = "email") String email,
+                                     @RequestParam(value = "password") String password) {
+        LoginResponse response = userService.login(email, password);
+        return ResponseEntity.ok(response);
     }
 
     @GetMapping("kakaologin")

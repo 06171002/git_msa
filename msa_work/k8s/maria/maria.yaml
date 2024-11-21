@@ -1,7 +1,14 @@
+#apiVersion: v1
+#kind: Namespace
+#metadata:
+#  name: maria-name
+
+---
 apiVersion: apps/v1
 kind: Deployment # what to create?
 metadata:
   name: mariadb-deployment
+#  namespace: maria-name
 spec: # specification for deployment resource
   replicas: 1 # how many replicas of pods we want to create
   selector:
@@ -35,6 +42,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: mariadb
+#  namespace: maria-name
 spec:
   type: LoadBalancer
   ports:
