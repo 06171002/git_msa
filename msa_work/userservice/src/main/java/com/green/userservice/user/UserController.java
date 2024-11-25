@@ -1,6 +1,7 @@
 package com.green.userservice.user;
 
 
+import com.green.userservice.feign.FirstClient;
 import com.green.userservice.user.service.UserService;
 import com.green.userservice.user.vo.LoginResponse;
 import com.green.userservice.user.vo.UserRequest;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
 
     private final UserService userService;
+    private final FirstClient firstClient;
 
     @PostMapping("join")
     public ResponseEntity<?> joinUser(@Valid @RequestBody UserRequest userRequest) {
@@ -39,6 +41,12 @@ public class UserController {
 
     @GetMapping("kakaologin")
     public ResponseEntity<String> getKakaoLogin() {
+        return ResponseEntity.ok(null);
+    }
+
+    @GetMapping("test")
+    public ResponseEntity<?> test() {
+        firstClient.test();
         return ResponseEntity.ok(null);
     }
 }
